@@ -7,9 +7,7 @@ import com.example.helpdesk.model.Ticket;
 import org.springframework.stereotype.Component;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class TicketStorage {
@@ -17,11 +15,15 @@ public class TicketStorage {
     private final List<Ticket> ticketList = new ArrayList<>();
 
     public TicketStorage() {
-        ticketList.add(new Ticket(1, Status.NEW, "Second ticket", new Person("Jan", "Kowalski", "jankowalski@example.com", 789988888), new Staff("WItold", "Zly", "wzly@staff.pl")));
+        ticketList.add(new Ticket("1", Status.NEW, "Second ticket", new Person("Jan", "Kowalski", "jankowalski@example.com", 789988888), new Staff("Witold", "Zly", "wzly@staff.pl")));
     }
 
-    public List<Ticket> getALlTicket() {
+    public List<Ticket> getAllTicket() {
         return ticketList;
+    }
+
+    public List<Ticket> findById(String id) {
+        return ticketList.stream().filter(i->i.getId().equals(id)).findFirst().stream().toList();
     }
 
     public Ticket addNewTicket(Ticket ticket) {
@@ -29,6 +31,7 @@ public class TicketStorage {
 
         return ticket;
     }
+
 
 
 

@@ -1,13 +1,13 @@
 package com.example.helpdesk.model;
 
 public class Ticket {
-    private int id;
-    private Status status;
-    private String nameTicket;
-    private Person person;
-    private Staff staff;
+    private final String id;
+    private final Status status;
+    private final String nameTicket;
+    private final Person person;
+    private final Staff staff;
 
-    public Ticket(int id, Status status, String nameTicket, Person person, Staff staff) {
+    public Ticket(String id, Status status, String nameTicket, Person person, Staff staff) {
         this.id = id;
         this.status = status;
         this.nameTicket = nameTicket;
@@ -15,13 +15,13 @@ public class Ticket {
         this.staff = staff;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "Ticket {" +
                 "id='" + id + '\'' +
                 ", status='" + status + '\'' +
                 ", ticket name='" + nameTicket + '\'' +

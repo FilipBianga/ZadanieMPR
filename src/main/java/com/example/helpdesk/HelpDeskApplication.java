@@ -15,7 +15,7 @@ public class HelpDeskApplication {
 
     public HelpDeskApplication(TicketService service) {
         Ticket ticket = service.addNew(
-                2,
+                "2",
                 Status.NEW,
                 "Pierwszy lub drugi",
                 new Person("Filip", "Nowakowski", "fnowakowski@example.com", 987098976),
@@ -23,6 +23,8 @@ public class HelpDeskApplication {
         );
 
         System.out.println(ticket);
+        System.out.println(service.deleteById("2"));
+
 
     }
 

@@ -25,7 +25,7 @@ public class TicketService {
         this.ticketStorage = ticketStorage;
     }
 
-    public Ticket addNew(int id, Status status, String nameTicket, Person person, String staffName) {
+    public Ticket addNew(String id, Status status, String nameTicket, Person person, String staffName) {
 
         Optional<Staff> staff = Optional.ofNullable(staffStorage.findBySurname(staffName));
 
@@ -36,8 +36,14 @@ public class TicketService {
 
         Ticket newTicket = ticketStorage.addNewTicket(new Ticket(id, status, nameTicket, person, staffStorage.findBySurname(staffName)));
 
-//        System.out.println(ticketStorage.getALlTicket());
+
+
         return newTicket;
+    }
+
+    public List<Ticket> deleteById(String id) {
+        List<Ticket> ticketToRemove = ticketStorage.findById(id).stream().toList();
+        return ticketToRemove;
     }
 
 
