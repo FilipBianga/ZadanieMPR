@@ -14,6 +14,9 @@ public class StaffStorage {
     public StaffStorage() {
         staffList.add(new Staff("Zbigniew", "Podwlazly", "zpod@helpdesk.pl"));
         staffList.add(new Staff("Marian", "Nizy", "m.nizy@helpdesk.pl"));
+        staffList.add(new Staff("Michał", "Wiśniewski", "mwis@helpdesk.pl"));
+        staffList.add(new Staff("Kamil", "Wójcik", "kwojcik@helpdesk.pl"));
+        staffList.add(new Staff("Filip", "Kowalczyk", "f.kowalczyk@helpdesk.pl"));
     }
 
     public Staff findBySurname(String name) {
@@ -22,10 +25,6 @@ public class StaffStorage {
                 .filter(storage -> storage.getSurname().equals(name))
                 .findFirst()
                 .orElseThrow();
-    }
-
-    public List<Staff> getStaffList() {
-        return staffList;
     }
 
 }

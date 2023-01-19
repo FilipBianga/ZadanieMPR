@@ -2,10 +2,10 @@ package com.example.helpdesk.model;
 
 public class Ticket {
     private final String id;
-    private final Status status;
+    private Status status;
     private final String nameTicket;
     private final Person person;
-    private final Staff staff;
+    private Staff staff;
 
     public Ticket(String id, Status status, String nameTicket, Person person, Staff staff) {
         this.id = id;
@@ -17,6 +17,22 @@ public class Ticket {
 
     public String getId() {
         return id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     @Override
