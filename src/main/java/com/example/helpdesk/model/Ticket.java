@@ -19,16 +19,8 @@ public class Ticket {
         return id;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public Staff getStaff() {
-        return staff;
     }
 
     public void setStaff(Staff staff) {

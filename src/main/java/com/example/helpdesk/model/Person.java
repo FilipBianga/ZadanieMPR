@@ -6,10 +6,6 @@ public class Person {
     private String email;
     private int number;
 
-    public String getSurname() {
-        return surname;
-    }
-
     public Person(String firstname, String surname, String email, int number) {
         this.firstname = firstname;
         this.surname = surname;

@@ -5,10 +5,6 @@ public class Staff {
     private String surname;
     private String email;
 
-    public String getFirstname() {
-        return firstname;
-    }
-
     public String getSurname() {
         return surname;
     }

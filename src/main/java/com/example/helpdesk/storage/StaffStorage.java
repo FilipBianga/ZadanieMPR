@@ -9,6 +9,9 @@ import java.util.List;
 @Component
 public class StaffStorage {
 
+    /**
+     * TUtaj opisywać nie będę bo ma się to tak jak w TicketStorage
+     */
     private final List<Staff> staffList = new ArrayList<>();
 
     public StaffStorage() {
@@ -19,6 +22,11 @@ public class StaffStorage {
         staffList.add(new Staff("Filip", "Kowalczyk", "f.kowalczyk@helpdesk.pl"));
     }
 
+    /**
+     * Metoda wyszukująca pracownika po podanym nazwisku
+     * @param name
+     * @return dany element z listy o podanym nazwisku
+     */
     public Staff findBySurname(String name) {
         return staffList.
                 stream()

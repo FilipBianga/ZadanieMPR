@@ -13,7 +13,9 @@ import java.util.stream.Collectors;
 @Component
 public class TicketService {
 
-
+    /**
+     * Pola z pracownikami i ticketami
+     */
     private final StaffStorage staffStorage;
     private final TicketStorage ticketStorage;
 
@@ -22,14 +24,38 @@ public class TicketService {
         this.ticketStorage = ticketStorage;
     }
 
+    /**
+     * Prosta metoda ktora zwraca sie do Storage w celu dodania nowego ticketu
+     * @param id
+     * @param status
+     * @param nameTicket
+     * @param person
+     * @param staffName
+     * @return
+     */
     public Ticket addNew(String id, Status status, String nameTicket, Person person, String staffName) {
         return ticketStorage.addNewTicket(new Ticket(id, status, nameTicket, person, staffStorage.findBySurname(staffName)));
     }
 
+    /**
+     * Tutaj tak samo, zwracamy sie do Storage w celu znalezienia ticketu po ID i wyswietleniem go w konsoli
+     * @param id
+     * @return
+     */
     public List<Ticket> printTicketById(String id) {
         return ticketStorage.findById(id);
     }
 
+    /**
+     * Update po statusie
+     * Wyciagamy ze storage wszystkie tickety
+     * Nastepnie korzystamy ze stream i filtrujemy je wszsytkie w celu znalezienia ticketu o podanym ID
+     * jak juz znajdziemy to mapujemy czyli zmieniamy dany status na taki jaki nas interesuje
+     * po czym zapisujemy do listy
+     * @param id
+     * @param status
+     * @return
+     */
     public List<Ticket> updateStatusTicket(String id, Status status) {
         List<Ticket> allTicket = ticketStorage.getAllTicket();
 
@@ -47,6 +73,12 @@ public class TicketService {
 
     }
 
+    /**
+     * Tak samo jak wyżej tylko zmieniamy pracownika w danym tickecie
+     * @param id
+     * @param staff
+     * @return
+     */
     public List<Ticket> updateStaffTicket(String id, String staff) {
         List<Ticket> allTicket = ticketStorage.getAllTicket();
 
@@ -64,7 +96,13 @@ public class TicketService {
 
     }
 
+    /**
+     * Tutaj nie wiem czy tego wymagał prowadzący ale metoda usuwajaca z listy ticket o podanym id
+     * @param id
+     * @return
+     */
     public List<Ticket> deleteTicketById(String id) {
+        // Ticekt do usuniecia o danym ID
         List<Ticket> ticketToRemove = ticketStorage.findById(id).stream().toList();
         System.out.println("THIS TICKET WILL BE REMOVED FROM TICKET STORAGE.");
         System.out.println("================================================");
@@ -77,6 +115,8 @@ public class TicketService {
         System.out.println(allTicket);
         System.out.println();
 
+        // Usuwamy ticket który wcześniej znaleźlismy
+        // Jezeli lista allTicket zawiera liste a w tym przypadku liste skladajaca sie z jednego elementu o podanym ID to usun z tej listy ten wlasnie element
         allTicket.removeIf(x->ticketToRemove.contains(x));
         System.out.println("TICKET STORAGE AFTER REMOVE TICKET");
         System.out.println("==================================");

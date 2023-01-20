@@ -1,18 +1,19 @@
 package com.example.helpdesk;
 
 import com.example.helpdesk.model.Person;
-import com.example.helpdesk.model.Staff;
 import com.example.helpdesk.model.Status;
 import com.example.helpdesk.model.Ticket;
 import com.example.helpdesk.service.TicketService;
-import com.example.helpdesk.storage.StaffStorage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class HelpDeskApplication {
 
-
+    /**
+     * Tutaj myślę ze rozumiesz wszystkie wywolywania
+     * @param service
+     */
     public HelpDeskApplication(TicketService service) {
         Ticket ticket = service.addNew(
                 "6",
