@@ -10,10 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class HelpDeskApplication {
 
-    /**
-     * Tutaj myślę ze rozumiesz wszystkie wywolywania
-     * @param service
-     */
     public HelpDeskApplication(TicketService service) {
         Ticket ticket = service.addNew(
                 "6",
